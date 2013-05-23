@@ -6,5 +6,6 @@
     <li id="tab_penyakit_gejala"><?php echo anchor('penyakit_gejala', 'penyakit dan gejala'); ?></li>
     <li id="tab_penyakit_penyebab"><?php echo anchor('penyakit_penyebab', 'penyakit dan penyebab'); ?></li>
     <li id="tab_penyakit_solusi"><?php echo anchor('penyakit_solusi', 'penyakit dan solusi'); ?></li>
+	<li id="tab_pembelajaran"><?php echo anchor('pembelajaran', 'pembelajaran'); ?></li>
     <li id="tab_logout"><?php echo anchor('', 'logout', array('onclick' => "return confirm('Anda yakin akan logout?')")); ?></li>
 </ul>
