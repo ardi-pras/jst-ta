@@ -6,7 +6,6 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" href="<?php echo base_url() . 'images/fav_icon.png'; ?>" />
         <style type="text/css">@import url("<?php echo base_url() . 'css/reset.css'; ?>");</style>
         <style type="text/css">@import url("<?php echo base_url() . 'css/login.css'; ?>");</style>
         <title>Login</title>
@@ -18,7 +17,7 @@ and open the template in the editor.
 
             <?php
             $attributes = array('name' => 'login_form', 'id' => 'login_form');
-            echo form_open('#', $attributes);
+            echo form_open('login/process_login', $attributes);
             ?>
 
             <?php

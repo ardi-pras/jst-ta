@@ -6,7 +6,7 @@ $flashmessage = $this->session->flashdata('message');
 echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
 ?>
 
-<form name="penyakit_form" method="post" action="<?php echo $form_action; ?>">
+<form name="penyakit_penyebab_form" method="post" action="<?php echo $form_action; ?>">
     <p>
         <label for="nm_penyakit">Nama Penyakit:</label>
         <input type="text" class="form_field" name="nm_penyakit" size="30" value="<?php echo set_value('nm_penyakit', isset($default['nm_penyakit']) ? $default['nm_penyakit'] : ''); ?>" />

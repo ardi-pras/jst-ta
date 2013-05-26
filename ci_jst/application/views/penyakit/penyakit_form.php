@@ -14,11 +14,11 @@ echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
     <?php echo form_error('kd_penyakit', '<p class="field_error">', '</p>'); ?>
 
     <p>
-        <label for="nama_penyakit">Nama Penyakit:</label>
-        <input type="text" class="form_field" name="nama_penyakit" size="30" value="<?php echo set_value('nama_penyakit', isset($default['nama_penyakit']) ? $default['nama_penyakit'] : ''); ?>" />
+        <label for="nm_penyakit">Nama Penyakit:</label>
+        <input type="text" class="form_field" name="nm_penyakit" size="30" value="<?php echo set_value('nm_penyakit', isset($default['nm_penyakit']) ? $default['nm_penyakit'] : ''); ?>" />
 
     </p>
-    <?php echo form_error('nama_penyakit', '<p class="field_error">', '</p>'); ?>	
+    <?php echo form_error('nm_penyakit', '<p class="field_error">', '</p>'); ?>	
 
     <p>
         <input type="submit" name="submit" id="submit" value=" Simpan " />

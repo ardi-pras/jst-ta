@@ -6,12 +6,12 @@ $flashmessage = $this->session->flashdata('message');
 echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
 ?>
 
-<form name="penyakit_form" method="post" action="<?php echo $form_action; ?>">
+<form name="penyakit_gejala_form" method="post" action="<?php echo $form_action; ?>">
     <p>
         <label for="nm_penyakit">Nama Penyakit:</label>
         <input type="text" class="form_field" name="nm_penyakit" size="30" value="<?php echo set_value('nm_penyakit', isset($default['nm_penyakit']) ? $default['nm_penyakit'] : ''); ?>" />
     </p>
-    <?php echo form_error('nm_gejala', '<p class="field_error">', '</p>'); ?>
+    <?php echo form_error('nm_penyakit', '<p class="field_error">', '</p>'); ?>
 
     <p>
         <label for="nm_gejala">Nama Gejala:</label>
