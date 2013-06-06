@@ -6,7 +6,7 @@ $flashmessage = $this->session->flashdata('message');
 echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
 ?>
 
-<form name="penyakit_form" method="post" action="<?php echo $form_action; ?>">
+<form name="gejala_form" method="post" action="<?php echo $form_action; ?>">
     <p>
         <label for="kd_gejala">Kode Gejala:</label>
         <input type="text" class="form_field" name="kd_gejala" size="30" value="<?php echo set_value('kd_gejala', isset($default['kd_gejala']) ? $default['kd_gejala'] : ''); ?>" />
@@ -14,11 +14,11 @@ echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
     <?php echo form_error('kd_gejala', '<p class="field_error">', '</p>'); ?>
 
     <p>
-        <label for="nama_gejala">Nama Gejala:</label>
-        <input type="text" class="form_field" name="nama_gejala" size="30" value="<?php echo set_value('nama_gejala', isset($default['nama_gejala']) ? $default['nama_gejala'] : ''); ?>" />
+        <label for="nm_gejala">Nama Gejala:</label>
+        <input type="text" class="form_field" name="nm_gejala" size="30" value="<?php echo set_value('nm_gejala', isset($default['nm_gejala']) ? $default['nm_gejala'] : ''); ?>" />
 
     </p>
-    <?php echo form_error('nama_gejala', '<p class="field_error">', '</p>'); ?>
+    <?php echo form_error('nm_gejala', '<p class="field_error">', '</p>'); ?>
 
     <p>
         <input type="submit" name="submit" id="submit" value=" Simpan " />

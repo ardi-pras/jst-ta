@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/ci_jst/';
+$config['base_url']	= 'http://localhost/tanaman-cabe/';
 
 /*
 |--------------------------------------------------------------------------
