@@ -8,6 +8,7 @@ class Penyakit_Solusi extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('penyakit_solusi_model');
+	$this->load->model('solusi_model');
     }
 
     var $limit = 10;
@@ -19,7 +20,7 @@ class Penyakit_Solusi extends CI_Controller {
         if ($this->session->userdata('login') == TRUE) {
             $this->get_all();
         } else {
-            redirect('login');
+            redirect('login/signin');
         }
     }
 
@@ -57,11 +58,11 @@ class Penyakit_Solusi extends CI_Controller {
 
         /* Set table heading */
             $this->table->set_empty("&nbsp;");
-            $this->table->set_heading('No', 'Nama Penyakit', 'Kode Solusi', 'Solusi', 'Actions');
+            $this->table->set_heading('No', 'Nama Penyakit', 'Solusi', 'Actions');
             $i = 0 + $offset;
 
             foreach ($penyakit_solusi as $row) {
-                $this->table->add_row(++$i, $row->nm_penyakit, $row->kd_solusi, $row->nm_solusi, anchor('penyakit_solusi/update/' . $row->kd_penyakit, 'update', array('class' => 'update')) . ' ' .
+                $this->table->add_row(++$i, $row->nm_penyakit, $row->nm_solusi, anchor('penyakit_solusi/update/' . $row->kd_penyakit, 'update', array('class' => 'update')) . ' ' .
                     anchor('penyakit_solusi/delete/' . $row->kd_penyakit, 'hapus', array('class' => 'delete', 'onclick' => "return confirm('Anda yakin akan menghapus data ini?')"))
                 );
             }
@@ -106,17 +107,17 @@ class Penyakit_Solusi extends CI_Controller {
         );
 
         $this->form_validation->set_rules('nm_penyakit','nm_penyakit','required');
-        $this->form_validation->set_rules('kd_solusi','kd_solusi','required');
         $this->form_validation->set_rules('solusi','solusi','solusi');
 
         if($this->form_validation->run() == TRUE) {
             $nm_penyakit = $this->input->post('nm_penyakit');
+	    $nm_solusi = $this->input->post('solusi');
 
             $penyakit = $this->penyakit_solusi_model->get_kd_penyakit($nm_penyakit);
+	    $solusi = $this->solusi_model->get_kd_solusi($nm_solusi);
 
             $penyakit_solusi = array('kd_penyakit' => $penyakit->kd_penyakit,
-                'kd_solusi' => $this->input->post('kd_solusi'),
-                'nm_solusi' => $this->input->post('solusi')
+                'kd_solusi' => $solusi->kd_solusi
             );
 
             $this->penyakit_solusi_model->add($penyakit_solusi);

@@ -16,7 +16,7 @@ class Penyakit extends CI_Controller {
         if ($this->session->userdata('login') == TRUE) {
             $this->get_all();
         } else {
-            redirect('login');
+            redirect('login/signin');
         }
     }
 

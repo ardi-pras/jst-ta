@@ -118,7 +118,7 @@ class penyakit_gejala extends CI_Controller {
             $gejala = $this->penyakit_gejala_model->get_kd_gejala($nm_gejala);
 
             $penyakit_gejala = array('kd_penyakit' => $penyakit->kd_penyakit,
-                'kd_gejala' => $gejala->kd_gejala, 'nm_gejala' => $nm_gejala);
+                'kd_gejala' => $gejala->kd_gejala);
 
             // Proses simpan data penyakit dan gejala
             $this->penyakit_gejala_model->add($penyakit_gejala);
@@ -172,7 +172,7 @@ class penyakit_gejala extends CI_Controller {
             $gejala = $this->penyakit_gejala_model->get_kd_gejala($nm_gejala);
 
             $penyakit_gejala = array('kd_penyakit' => $penyakit->kd_penyakit,
-                'kd_gejala' => $gejala->kd_gejala, 'nm_gejala' => $nm_gejala);
+                'kd_gejala' => $gejala->kd_gejala);
 
             $this->penyakit_gejala_model->update($this->session->userdata('kd_penyakit'), $penyakit_gejala);
 

@@ -5,17 +5,35 @@
  * and open the template in the editor.
  */
 class Login extends CI_Controller {
-
+    
     public function __construct() {
         parent::__construct();
         $this->load->model('login_model');
+	$this->load->library('../controllers/pembelajaran');
     }
-
+	
     public function index() {
         if ($this->session->userdata('login') == TRUE) {
             redirect('penyakit');
         } else {
-            $this->load->view('login');
+		/*Set default data*/
+		$save_data = $this->pembelajaran->loadFromDatabase();
+		$data['error_control'] = $save_data['error'];
+		/*Set default data*/
+	
+		$data['title'] = 'Diagnosa';
+		$data['gejala'] = $this->db->get('gejala');
+		$data['h2_title'] = 'Pembelajaran';
+		$data['main_view'] = 'diagnosa';
+		$this->load->view('template_diagnosa', $data);	
+        }
+    }
+    
+    public function signin() {
+	if ($this->session->userdata('login') == TRUE) {
+            redirect('penyakit');
+        } else {
+		$this->load->view('login');
         }
     }
 
@@ -34,7 +52,7 @@ class Login extends CI_Controller {
                 redirect('penyakit');
             } else {
                 $this->session->set_flashdata('message', 'Maaf, username dan atau password Anda salah');
-                redirect('login/index');
+                redirect('login/signin');
             }
         } else {
             $this->load->view('login/login');
@@ -43,7 +61,7 @@ class Login extends CI_Controller {
 
     function process_logout() {
         $this->session->sess_destroy();
-        redirect('login', 'refresh');
+	redirect('login/signin', 'refresh');
     }
 
 }

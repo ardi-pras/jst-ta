@@ -3,8 +3,12 @@ class Pembelajaran extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
-	
+    var $title = 'Pembelajaran';
+    
 	public function index(){
+	
+	
+	
 		if(!empty($_POST['gejala'])){
 			error_reporting(E_ERROR);
 			$this->load->library('neuralnetwork');
@@ -41,6 +45,10 @@ class Pembelajaran extends CI_Controller {
 				$data['hasil'] = $this->bacaOutput($target);
 			}
 			
+		}else{
+			if ($this->session->userdata('login') == FALSE) {
+			    redirect('/');
+			}
 		}
 		
 		/*Set default data*/
@@ -48,10 +56,19 @@ class Pembelajaran extends CI_Controller {
 		$data['error_control'] = $save_data['error'];
 		/*Set default data*/
 		
+		$data['title'] = $this->title;
 		$data['gejala'] = $this->db->get('gejala');
+		
+		if(!empty($_POST['diagnosa'])){
+		$data['h2_title'] = 'Diagnosa';
+		$data['main_view'] = 'diagnosa';
+		$this->load->view('template_diagnosa', $data);
+		}else{
 		$data['h2_title'] = 'Pembelajaran';
 		$data['main_view'] = 'pembelajaran/index';
 		$this->load->view('template', $data);
+		}
+		
 	}
 	
 	public function jumlahInput(){
@@ -200,6 +217,7 @@ class Pembelajaran extends CI_Controller {
 		);
 
 		$this->db->insert('pembelajaran', $data); 
+		redirect('pembelajaran');
 	}
 	
 	

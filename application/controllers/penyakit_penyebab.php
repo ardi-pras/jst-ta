@@ -111,8 +111,7 @@ class penyakit_penyebab extends CI_Controller {
 
             $penyebab_penyakit = array(
                 'kd_penyakit' => $penyakit->kd_penyakit,
-                'kd_penyebab' => $penyebab->kd_penyebab,
-                'nm_penyebab' => $nm_penyebab
+                'kd_penyebab' => $penyebab->kd_penyebab
             );
 
             $this->penyakit_penyebab_model->add($penyebab_penyakit);

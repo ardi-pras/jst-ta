@@ -14,12 +14,6 @@ echo!empty($flashmessage) ? '<p class="message">' . $flashmessage . '</p>' : '';
     <?php echo form_error('nm_penyakit', '<p class="field_error">', '</p>'); ?>
 
     <p>
-        <label for="kd_solusi">Kode Solusi:</label>
-        <input type="text" class="form_field" name="kd_solusi" size="30" value="<?php echo set_value('kd_solusi', isset($default['kd_solusi']) ? $default['kd_solusi'] : ''); ?>" />
-    </p>
-    <?php echo form_error('kd_solusi', '<p class="field_error">', '</p>'); ?>
-
-    <p>
         <label for="solusi">Solusi:</label>
         <textarea class="form_field" name="solusi"><?php echo set_value('solusi', isset($default['solusi']) ? $default['solusi'] : ''); ?></textarea>
     </p>

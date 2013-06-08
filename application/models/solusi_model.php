@@ -48,6 +48,12 @@ class solusi_model extends CI_Model {
         $this->db->where('kd_solusi', $kd_solusi);
         $this->db->update($this->table, $solusi);
     }
+    
+    function get_kd_solusi($nm_solusi) {
+        $this->db->select('kd_solusi');
+        $this->db->where('nm_solusi', $nm_solusi);
+        return $this->db->get('solusi')->row();
+    }
 
 }
 

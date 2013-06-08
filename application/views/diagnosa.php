@@ -1,5 +1,5 @@
 <table width="100%" border="0" align="left">
-  <form name="form1" method="post" action="">
+  <form name="form1" method="post" action="<?php echo base_url().'index.php/pembelajaran/index'; ?>">
   <tr valign="top">
     <td height="179" colspan="2">
 	
@@ -13,14 +13,13 @@
 	?>	
 	<br/>
 	Banyak Iterasi <input type="text" name="jum_iterasi" value="1000" />
+	<input type="hidden" name="diagnosa" value="true" />
     </td>
   </tr>
   <tr valign="top">
     <td colspan="2">
     <div align="right">
-		<input name="status" type="submit"value="Pembelajaran" />
 		<input name="status" type="submit"value="Diagnosa"/>
-		<a href="pembelajaran/simpan"><input type="button"value="Simpan Bobot"/></a>
 	</div>	</td>
   </tr>
   </form>

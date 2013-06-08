@@ -51,8 +51,8 @@ class penyakit_penyebab_model extends CI_Model {
     }
 
     function get_penyakit_penyebab_by_id($kd_penyakit) {
-        $this->db->select('penyakit.nm_penyakit, penyebab_penyakit.nm_penyebab, penyebab_penyakit.kd_penyakit');
-        $this->db->from('penyakit, penyebab_penyakit');
+        $this->db->select('penyebab_penyakit.kd_penyakit, penyakit.nm_penyakit, penyebab.nm_penyebab');
+        $this->db->from('penyakit, penyebab_penyakit,penyebab');
         $this->db->where('penyebab_penyakit.kd_penyakit = penyakit.kd_penyakit');
         $this->db->where('penyebab_penyakit.kd_penyakit', $kd_penyakit);
         return $this->db->get()->row();
